@@ -1,6 +1,6 @@
-from src.config import Config
-from src.app import db
-from src.util.json_util import JsonUtil
+from config import Config
+from app import db, app
+from util.json_util import JsonUtil
 
 
 class Linha(db.Model):
@@ -42,3 +42,6 @@ class Onibus(db.Model):
             "lotacao": self.lotacao,
             "linha_id": self.linha_id
         }
+
+
+# db.create_all(app=app)

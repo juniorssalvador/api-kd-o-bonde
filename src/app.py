@@ -1,7 +1,8 @@
 from flask import Flask
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
-from src.config import Config
+
+from config import Config
 
 app = Flask(__name__)
 
@@ -11,8 +12,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
-from src.controller.linha_controller import linha_controller
-from src.controller.onibus_controller import onibus_controller
+from controller.linha_controller import linha_controller
+from controller.onibus_controller import onibus_controller
 
 app.register_blueprint(linha_controller)
 app.register_blueprint(onibus_controller)

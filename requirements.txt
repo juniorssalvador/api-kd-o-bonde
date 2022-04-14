@@ -1,9 +1,11 @@
 Flask
-Bootstrap-Flask
-Flask-SQLAlchemy
+waitress
 Flask-WTF
-psycopg2-binary
+gunicorn
+sqlalchemy
 flask_script
 Flask-Migrate
-sqlalchemy
+Bootstrap-Flask
+psycopg2-binary
+Flask-SQLAlchemy
 SQLAlchemy-serializer
