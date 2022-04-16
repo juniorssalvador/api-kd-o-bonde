@@ -9,7 +9,7 @@ class Config(object):
         'driver': 'postgres',
         'username': 'postgres',
         'password': 'jrjr',
-        'host': '127.0.0.1',
+        'host': 'vps.palladiumware.com',
         'database': 'kd_o_bonde',
         'schema': 'kd_o_bonde',
         'port': '5432'
