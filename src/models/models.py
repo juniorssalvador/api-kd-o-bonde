@@ -20,7 +20,7 @@ class Linha(db.Model):
     def serialize(self):
         return {
             "id": self.id,
-            "name": self.name,
+            "name": self.name.strip(),
             "onibus_list": JsonUtil.instrumented_list_to_json(self.onibus_list)
         }
 

@@ -8,14 +8,17 @@ linha_controller = Blueprint('linha_controller', __name__)
 
 @linha_controller.route('/linhas/', methods=["GET"])
 @linha_controller.route('/linhas/<id>', methods=["GET"])
-def linhas(id=None):
-
+@linha_controller.route('/linhas/filter/<query>', methods=["GET"])
+def linhas(id=None, query=None):
     from models.models import Linha
 
-    if id is None:
-        response = make_response(JsonUtil().list_to_json(PersistenceUtil.query(Linha).all()))
-    else:
+    if query is not None:
+        response = make_response(
+            JsonUtil().list_to_json(PersistenceUtil.query(Linha).filter(Linha.name.like(" " + query + '%')).all()))
+    elif id is not None:
         response = make_response(dict(PersistenceUtil.query(Linha).get(id).serialize()))
+    else:
+        response = make_response(JsonUtil().list_to_json(PersistenceUtil.query(Linha).all()))
 
     response.headers['Content-Type'] = 'application/json'
     return response
