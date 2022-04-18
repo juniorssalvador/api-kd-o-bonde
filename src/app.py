@@ -1,22 +1,14 @@
-from flask import Flask
 from flask_migrate import Migrate
-from flask_sqlalchemy import SQLAlchemy
 
-from config import Config
-
-app = Flask(__name__)
-
-app.config['SQLALCHEMY_DATABASE_URI'] = Config.SQLALCHEMY_DATABASE_URI
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-db = SQLAlchemy(app)
-migrate = Migrate(app, db)
+from importe_db import app
 
 from controller.linha_controller import linha_controller
 from controller.onibus_controller import onibus_controller
+from models.models import db, Onibus, Linha
 
 app.register_blueprint(linha_controller)
 app.register_blueprint(onibus_controller)
+Migrate(app, db)
 
 
 @app.errorhandler(404)

@@ -1,6 +1,9 @@
+from flask_sqlalchemy import SQLAlchemy
+from importe_db import app
 from config import Config
-from app import db, app
 from util.json_util import JsonUtil
+
+db = SQLAlchemy(app)
 
 
 class Linha(db.Model):
@@ -8,6 +11,7 @@ class Linha(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(128))
+    identificacao_linha = db.Column(db.Integer)
     onibus_list = db.relationship('Onibus', backref='linha', lazy=True)
 
     def __repr__(self):
@@ -42,6 +46,3 @@ class Onibus(db.Model):
             "lotacao": self.lotacao,
             "linha_id": self.linha_id
         }
-
-
-# db.create_all(app=app)

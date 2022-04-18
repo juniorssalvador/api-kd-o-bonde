@@ -1,10 +1,5 @@
-import os
-
-basedir = os.path.abspath(os.path.dirname(__file__))
-
-
 class Config(object):
-    tbl_args = {"schema": "kd_o_bonde"}
+    tbl_args = {"schema": "kd_o_bonde", "extend_existing": True}
     conn = {
         'driver': 'postgres',
         'username': 'postgres',
@@ -21,21 +16,3 @@ class Config(object):
     SECRET_KEY = 'this-really-needs-to-be-changed'
     SQLALCHEMY_DATABASE_URI = 'postgresql://{}:{}@{}/{}'.format(conn['username'], conn['password'], conn['host'],
                                                                 conn['database'])
-
-
-class ProductionConfig(Config):
-    DEBUG = False
-
-
-class StagingConfig(Config):
-    DEVELOPMENT = True
-    DEBUG = True
-
-
-class DevelopmentConfig(Config):
-    DEVELOPMENT = True
-    DEBUG = True
-
-
-class TestingConfig(Config):
-    TESTING = True
