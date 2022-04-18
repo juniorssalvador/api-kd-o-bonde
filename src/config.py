@@ -4,7 +4,7 @@ class Config(object):
         'driver': 'postgres',
         'username': 'postgres',
         'password': 'jrjr',
-        'host': 'vps.palladiumware.com',
+        'host': '51.79.51.190',
         'database': 'kd_o_bonde',
         'schema': 'kd_o_bonde',
         'port': '5432'
