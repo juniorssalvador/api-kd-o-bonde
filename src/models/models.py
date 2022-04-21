@@ -60,6 +60,13 @@ class Linha(db.Model):
             "id": self.id,
             "name": self.name.strip(),
             "identificacao_linha": self.identificacao_linha,
+        }
+
+    def serialize_with_lists(self):
+        return {
+            "id": self.id,
+            "name": self.name.strip(),
+            "identificacao_linha": self.identificacao_linha,
             "onibus_list": JsonUtil.instrumented_list_to_json(self.onibus_list),
             "itinerario_list": JsonUtil.instrumented_list_to_json(self.itinerario_list)
         }
