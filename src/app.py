@@ -4,7 +4,7 @@ from importe_db import app
 
 from controller.linha_controller import linha_controller
 from controller.onibus_controller import onibus_controller
-from models.models import db, Onibus, Linha
+from models.models import db, Onibus, PontoItinerario, Itinerario, Linha
 
 app.register_blueprint(linha_controller)
 app.register_blueprint(onibus_controller)

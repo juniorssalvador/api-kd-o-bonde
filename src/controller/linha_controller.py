@@ -14,7 +14,7 @@ def linhas(id=None, query=None):
 
     if query is not None:
         response = make_response(
-            JsonUtil().list_to_json(PersistenceUtil.query(Linha).filter(Linha.name.like(" " + query + '%')).all()))
+            JsonUtil().list_to_json(PersistenceUtil.query(Linha).filter(Linha.name.like(query + '%')).all()))
     elif id is not None:
         response = make_response(dict(PersistenceUtil.query(Linha).get(id).serialize()))
     else:
