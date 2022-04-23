@@ -1,5 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
-from importe_db import app
+from importe_app import app
 from config import Config
 from util.json_util import JsonUtil
 
@@ -52,8 +52,8 @@ class Linha(db.Model):
     onibus_list = db.relationship('Onibus', backref='linha', lazy=True)
     itinerario_list = db.relationship('Itinerario', backref='linha', lazy=True)
 
-    def __repr__(self):
-        return '<User %r>' % self.name
+    # def __repr__(self):
+    #     return '<User %r>' % self.name
 
     def serialize(self):
         return {
@@ -82,8 +82,8 @@ class Onibus(db.Model):
     linha_id = db.Column(db.Integer, db.ForeignKey(f'{Config.tbl_args.get("schema")}.linha.id'),
                          nullable=False)
 
-    def __repr__(self):
-        return '<User %r>' % self.name
+    # def __repr__(self):
+    #     return '<User %r>' % self.name
 
     def serialize(self):
         return {

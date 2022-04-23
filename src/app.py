@@ -1,13 +1,16 @@
 from flask_migrate import Migrate
 
-from importe_db import app
+from importe_app import app
 
 from controller.linha_controller import linha_controller
 from controller.onibus_controller import onibus_controller
+from controller.search_controller import search_controller
 from models.models import db, Onibus, PontoItinerario, Itinerario, Linha
 
 app.register_blueprint(linha_controller)
 app.register_blueprint(onibus_controller)
+app.register_blueprint(search_controller)
+
 Migrate(app, db)
 
 
