@@ -14,7 +14,7 @@ def create_query(query):
                                                 "join kd_o_bonde.itinerario it on l.id = it.linha_id "
                                                 "join kd_o_bonde.ponto_itinerario pit on it.id = pit.itinerario_id "
                                                 "where upper(pit.descricao) like '%%{0}%%' or "
-                                                "upper(l.name) like '%%{0}%%'"
+                                                "upper(l.name) like '{0}%%'"
                                                 .format(query.upper(), query.upper()))
 
     for linha in data:
