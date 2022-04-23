@@ -20,7 +20,7 @@ def create_query(query):
     for linha in data:
         sm = SearchModel(ident=linha[0], title=linha[1],
                          sub_title=linha[2], data=linha[3],
-                         typee="Linha" if str(linha[1]).__contains__(query) else "Ponto")
+                         typee="Linha" if str(linha[1]).startswith(query) else "Ponto")
 
         search_result.append(sm)
 
